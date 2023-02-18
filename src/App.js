@@ -9,9 +9,9 @@ import {Routes} from 'react-router'
 
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  
+  Route
+  
 } from "react-router-dom";
 
 
@@ -35,7 +35,7 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#042743';
       showAlert("Dark mode has been enabled" , "success");
-      document.title = 'TextUtils - Dark mode';
+      // document.title = 'TextUtils - Dark mode';
       // setInterval(() => {
       //   document.title = 'TextUtils is Amazing';
       // }, 2000);
@@ -46,7 +46,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enabled" , "success");
-      document.title = 'TextUtils - Light mode';
+      // document.title = 'TextUtils - Light mode';
     }
   }
   return (
@@ -61,8 +61,9 @@ function App() {
           {/* /users --> component 1
           /users/home--> component 2 */}
           <Routes>
-            <Route exact path="/about" element={<About />}> </Route>
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text to Analyse below" mode={mode} />}></Route>
+            <Route exact path="/about" element={<About  mode={mode}/>}> </Route>
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter , Character Counter , Remove Extra Spaces" mode={mode} />}></Route>
+            {/* <TextForm showAlert={showAlert} heading="Enter your text to Analyse below" mode={mode} /> */}
           </Routes>
         </div>
       </Router>
